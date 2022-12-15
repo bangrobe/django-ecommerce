@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'components/features.html' %}
+    <!-- Products Start -->
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">Trandy Products</span></h2>
+        </div>
+        <div class="row px-xl-5 pb-3">
+            {% for product in products %}
+         
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                {% include 'components/card_product.html' with product=product %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Products End -->
+{% endblock content %}
