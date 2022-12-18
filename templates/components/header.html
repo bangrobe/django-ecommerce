@@ -123,10 +123,18 @@
             <a href="{% url 'shoppage' %}" class="nav-item nav-link">Shop</a>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
           </div>
+          {% if user.is_authenticated %}
           <div class="navbar-nav ml-auto py-0">
-            <a href="" class="nav-item nav-link">Login</a>
-            <a href="" class="nav-item nav-link">Register</a>
+            <span class="nav-item nav-link title text-muted">Welcome {{ user.first_name}} </span>
+            <a href="{% url 'dashboard' %}" class="nav-item nav-link">Dashboard</a>
+            <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
           </div>
+          {% else %}
+          <div class="navbar-nav ml-auto py-0">
+            <a href="{% url 'login' %}" class="nav-item nav-link">Login</a>
+            <a href="{% url 'register' %}" class="nav-item nav-link">Register</a>
+          </div>
+          {% endif %}
         </div>
       </nav>
       <!--HEADER CAROUSEL -->

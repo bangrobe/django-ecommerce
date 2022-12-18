@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Login Form
+{% endblock title %}
+{% block content %}
+<section class="100vh">
+<div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          {% include 'components/alert.html' %}
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Login Form</h3>
+            <form action="{% url 'login' %}" method="POST">
+              {% csrf_token %}
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="form2Login" class="form-control" name="email" />
+                  <label class="form-label" for="form2Login">Email address</label>
+                </div>
+              
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" id="form2Login2" class="form-control" name="password" />
+                  <label class="form-label" for="form2Login2">Password</label>
+                </div>
+              
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">       
+                  <div class="col">
+                    <!-- Simple link -->
+                    <a href="{% url 'forgot-password' %}">Forgot password?</a>
+                  </div>
+                </div>
+              
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+              
+                <!-- Register buttons -->
+                <div class="text-center">
+                  <p>Not a member? <a href="{% url 'register' %}">Register</a></p>
+                  <p>or sign up with:</p>
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                  </button>
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                  </button>
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                  </button>
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                  </button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
